@@ -11,7 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{{ asset('scripts/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('scripts/utils.js') }}"></script>
     <!-- cdn for modernizr, if you haven't included it already -->
     <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
@@ -44,6 +43,9 @@
                 </li>
                 <li>
                     <a href="/teams">{{trans('messages.teams')}}</a>
+                </li>
+                <li>
+                    <a href="/help">{{trans('messages.help')}}</a>
                 </li>
             </ul>
         </nav>

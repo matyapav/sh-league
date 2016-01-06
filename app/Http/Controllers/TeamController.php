@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Team;
 use App\User;
+use App\Tournament;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -11,25 +12,64 @@ use Illuminate\Http\Request;
 //TODO comment class
 class TeamController extends Controller {
 
+    public function leaveTournament($id){
+        $team = Team::findOrFail($id);
+        if (Auth::user()->id == $team->captain->id || Auth::user()->hasRole('admin')) {
+            $t = Tournament::findOrFail(Input::all()['tour_leave_id']);
+            $team->tournaments()->detach($t->id);
+            return Redirect::back()->with('message', trans('messages.tour-leaved'));
+        }else{
+            return Redirect::back()->withErrors(trans('messages.not-captain-or-admin'));
+        }
+    }
+
+	public function joinTournament($id){
+		$team = Team::findOrFail($id);
+        if (Auth::user()->id == $team->captain->id || Auth::user()->hasRole('admin')) {
+            $t = Tournament::findOrFail(Input::all()['tour_join_id']);
+
+            foreach ($team->tournaments()->get() as $tournament) {
+                if ($tournament->id == $t->id) {
+                    return Redirect::back()->withErrors(trans('messages.tour-already-joined'));
+                }
+            }
+            if (count($t->signedTeams()->get()) + 1 > $t->max_number_of_teams) {
+                return Redirect::back()->withErrors(trans('messages.tour-full'));
+            }
+
+            //todo add datetime conditions
+
+            $team->tournaments()->attach($t->id);
+            return Redirect::back()->with('message', trans('messages.tour-joined'));
+        }else{
+            return Redirect::back()->withErrors(trans('messages.not-captain-or-admin'));
+        }
+	}
+
 	/**
 	 * Invite another user to a team
-	 * @param $id
-	 * @return mixed
+     *
+	 * @param $id id of team to which is user invited. User id is given from input.
+	 * @return mixed redirection back with error or success msg
  	*/
     public function inviteUser($id){
         $team = Team::findOrFail($id);
-        foreach ($team->sentInvitations()->get() as $invitation) {
-            if($invitation->id == Input::all()['user_inv_id']){
-                return Redirect::back()->withErrors('This user was already invited'); //TODO translate
+        if (Auth::user()->id == $team->captain->id || Auth::user()->hasRole('admin')) {
+            foreach ($team->sentInvitations()->get() as $invitation) {
+                if ($invitation->id == Input::all()['user_inv_id']) {
+                    return Redirect::back()->withErrors(trans('messages.inv-already-invited'));
+                }
             }
-        }
-        foreach ($team->members()->get() as $member) {
-            if($member->id == Input::all()['user_inv_id']){
-                return Redirect::back()->withErrors('This user is already in team'); //TODO translate
+            foreach ($team->members()->get() as $member) {
+                if ($member->id == Input::all()['user_inv_id']) {
+                    return Redirect::back()->withErrors(trans('messages.inv-already-in-team'));
+                }
             }
+            $team->sentInvitations()->attach(Input::all()['user_inv_id']);
+            return Redirect::back()->with('message', trans('messages.user-invited'));
+        }else{
+            return Redirect::back()->withErrors(trans('messages.not-captain-or-admin'));
         }
-        $team->sentInvitations()->attach(Input::all()['user_inv_id']);
-        return Redirect::back()->with('message', 'User invited'); //TODO translate
     }
 
 
@@ -91,7 +131,8 @@ class TeamController extends Controller {
 	{
 		$team = Team::findOrFail($id);
 		$users = User::all();
-		return view('/teams/team-details', ['team' => $team, 'users' => $users]);
+		$tournaments = Tournament::all();
+		return view('/teams/team-details', ['team' => $team, 'users' => $users, 'tournaments' => $tournaments]);
 	}
 
 	/**
@@ -102,12 +143,11 @@ class TeamController extends Controller {
 	 */
 	public function edit($id)
 	{
-
 		$team = Team::findOrFail($id);
-		if (Auth::user()->id == $team->captain || Auth::user()->hasRole('admin')) {
+		if (Auth::user()->id == $team->captain->id || Auth::user()->hasRole('admin')) {
 			return view('/teams/team-create', ['edited' => $team]);
 		}else{
-			return redirect('/teams')->withErrors('You are not admin or captain of this team'); //TODO translate
+			return redirect('/teams')->withErrors(trans('messages.not-captain-or-admin'));
 		}
 	}
 
@@ -135,7 +175,7 @@ class TeamController extends Controller {
 			$team->save();
 			return redirect('/teams');
 		}else{
-			return redirect('/teams')->withErrors('You are not admin or captain of this team'); //TODO translate
+			return redirect('/teams')->withErrors(trans('messages.not-captain-or-admin'));
 		}
 		//
 	}
@@ -153,7 +193,7 @@ class TeamController extends Controller {
 			$team->delete();
 			return redirect('/teams');
 		}else{
-			return redirect('/teams')->withErrors('You are not admin or captain of this team'); //TODO translate
+			return redirect('/teams')->withErrors(trans('messages.not-captain-or-admin'));
 		}
 
 	}

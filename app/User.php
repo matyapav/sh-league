@@ -56,7 +56,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany corresponding relationship
 	 */
 	public function teamsWhereUserIsCaptain(){
-		return $this->hasMany('App\Team', 'user_id', 'captain');
+		return $this->hasMany('App\Team', 'captain_id', 'id');
 	}
 
 	/**
@@ -107,11 +107,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @return bool true if user has this role, false if not
 	 */
 	public function hasRole($rolename = null){
-		if (Auth::check()){
-			foreach(Auth::user()->roles()->get() as $role){
-				if($role->name == $rolename){
-					return true;
-				}
+		foreach($this->roles()->get() as $role){
+			if($role->name == $rolename){
+				return true;
 			}
 		}
 		return false;
@@ -127,7 +125,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		if(is_null($team->captain)){
 			return false;
 		}
-		return Auth::user()->id == $team->captain->id;
+		return $this->id == $team->captain->id;
 	}
 
 }

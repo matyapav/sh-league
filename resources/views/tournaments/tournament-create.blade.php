@@ -71,7 +71,7 @@
                             {{trans('messages.league')}}
                         </label>
 
-                        <input type="hidden" id="leagueid" value="@if(!is_null($edited) && !is_null($edited->league)){{$edited->league->id}}@else{{$leagues->first()->id}}@endif">
+                        <input type="hidden" id="leagueid" value="@if(!is_null($edited) && !is_null($edited->league)){{$edited->league->id}}@else{{$leagues->first()->id}}@endif" required>
                         <select name="league_id" id="league_select" class="input-field select">
                             @foreach($leagues as $league)
                                 <option value="{{$league->id}}">{{$league->name}}</option>

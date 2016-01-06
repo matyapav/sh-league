@@ -26,7 +26,7 @@
     </script>
 </td>
 
-<td >
+<td id="action">
     <a href="{{ URL::to('users/leaveTeam/'.$team->id) }}"
        class="@if(!$team->members()->get()->contains(Auth::user()))not-visible @endif">
         <button class="btn-wrap-content orange" >

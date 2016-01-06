@@ -5,7 +5,7 @@ a:hover, a:visited:hover{
     color:white;
 }
 a:visited{
-    color:grey;
+    color:lightgrey;
 }
 
 .a-over-btn{
@@ -88,7 +88,7 @@ body {
 }
 
 .input-field.select {
-    height: 27px;
+    height: 32px;
     width: 212px;
 }
 
@@ -235,6 +235,17 @@ body {
     font-weight:normal;
     color:#000000;
     min-width: 50px;
+}
+
+.fine-table a{
+    color: black;
+}
+
+.fine-table a:hover, .fine-table a:visited:hover{
+    color:orange;
+}
+.fine-table a:visited{
+    color: #5e5e5e;
 }
 
 .info-box{

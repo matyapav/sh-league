@@ -39,7 +39,7 @@ class League extends Model {
      *
      * @var array array of fillable values
      */
-    protected $fillable = ['name','abbreviation', 'description', 'game_id'];
+    protected $fillable = ['name','abbreviation', 'created_by','description', 'game_id'];
 
     /**
      * Get tournaments in league (Relationship) - call get() on it to get collection

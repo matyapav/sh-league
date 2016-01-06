@@ -6,7 +6,7 @@
             <div class="panel-heading orange">{{trans('messages.detail-of-league')}} - {{$league->name}}</div>
             <div class="body_content ">
                 <div class="info-box">
-                    <h3>Info</h3>
+                    <h3>{{trans('messages.info')}}</h3>
                         <table class="info-table">
                         <tr>
                             <td>

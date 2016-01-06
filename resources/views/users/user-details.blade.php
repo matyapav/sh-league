@@ -7,7 +7,7 @@
             <div class="body_content ">
                 @include('errors.error')
                 <div class="info-box">
-                    <h3>Info</h3>
+                    <h3>{{trans('messages.info')}}</h3>
                         <table class="info-table">
                         <tr>
                             <td>
@@ -80,8 +80,7 @@
                                 <strong>{{trans('messages.avatar')}} :</strong>
                             </td>
                             <td>
-                                <img class="user-info-image" src="@if(!is_null(Auth::user()->avatar) && !empty(Auth::user()->avatar))
-                                {{ asset(Auth::user()->avatar)}}@else{{asset('images/guest.png')}}@endif" alt="user avatar">
+                                <img class="user-info-image" src="@if(!is_null($user->avatar) && !empty($user->avatar)){{ asset('images/'.$user->avatar)}}@else{{asset('images/guest.png')}}@endif" alt="user avatar">
                             </td>
                         </tr>
                     </table>
@@ -131,7 +130,7 @@
 
                     <!-- INVITATIONS FROM TEAMS -->
                     @if(Auth::user()->id == $user->id)
-                        <h2>Invitations to teams</h2>
+                        <h2>{{trans('messages.inv-to-teams')}}</h2>
                         <table class="fine-table" id="invitations-table">
                             <!-- Table Headings -->
                             <thead>
@@ -154,7 +153,7 @@
                                         <a href="{{ URL::to('users/acceptInvitation/'.$invitation->id) }}">
                                             <button class="btn-common green" >
                                                 <i class="fa fa-check"></i>
-                                                Accept
+                                                {{trans('messages.accept')}}
                                             </button>
                                         </a>
                                     </td>
@@ -162,7 +161,7 @@
                                         <a href="{{ URL::to('users/declineInvitation/'.$invitation->id) }}">
                                             <button class="btn-common red" >
                                                 <i class="fa fa-times"></i>
-                                                Decline
+                                                {{trans('messages.decline')}}
                                             </button>
                                         </a>
                                     </td>

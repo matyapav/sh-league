@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="game_id" class="input-label">
+                        <label for="gameid" class="input-label">
                             {{trans('messages.game')}}
                         </label>
 

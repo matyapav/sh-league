@@ -15,8 +15,10 @@
 Route::get('/', function () {
         return view('home');
 });
-Route::get('/', function () {
-        return view('home');
+
+//Help ...
+Route::get('/help', function() {
+    return view('help');
 });
 
 //User routes ...
@@ -31,6 +33,8 @@ Route::post('/users/setRoles/{id}', 'UserController@setRoles');
 Route::get('/users/acceptInvitation/{id}', ['middleware' => ['auth'], 'uses' => 'UserController@acceptInvitation']);
 Route::get('/users/declineInvitation/{id}', ['middleware' => ['auth'], 'uses' => 'UserController@declineInvitation']);
 Route::get('/users/leaveTeam/{id}', ['middleware' => ['auth'], 'uses' => 'UserController@leaveTeam']);
+Route::get('/users/kickUser/{id}', ['middleware' => ['auth'], 'uses'=> 'UserController@kickUser']);
+Route::get('/users/forwardCaptainRole/{id}', ['middleware' => ['auth'], 'uses'=> 'UserController@forwardCaptainRole']);
 //Team routes ...
 Route::get('/teams', ['middleware' => ['auth'], 'uses' => 'TeamController@index']);
 Route::get('/teams/show/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@show']);
@@ -40,7 +44,8 @@ Route::any('/teams/delete/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamContro
 Route::any('/teams/create', ['middleware' => ['auth'], 'uses'=> 'TeamController@store']);
 Route::any('/teams/update/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@update']);
 Route::get('/teams/inviteUser/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@inviteUser']);
-
+Route::get('/teams/joinTournament/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@joinTournament']);
+Route::get('/teams/leaveTournament/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@leaveTournament']);
 //League routes
 Route::get('/leagues', ['middleware' => ['auth'], 'uses' => 'LeagueController@index']);
 Route::get('/leagues/show/{id}', ['middleware' => ['auth'], 'uses'=> 'LeagueController@show']);
@@ -67,3 +72,5 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+

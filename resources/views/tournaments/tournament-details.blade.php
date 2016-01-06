@@ -7,7 +7,7 @@
             <div class="body_content ">
 
                 <div class="info-box">
-                    <h3>Info</h3>
+                    <h3>{{trans('messages.info')}}</h3>
                         <table class="info-table">
                         <tr>
                             <td>
@@ -96,15 +96,13 @@
 
                 <!-- TABLE OF TEAMS IN TOURNAMENT -->
                 @if (count($tournament->signedTeams()->get()) > 0)
-                <!-- Table Headings -->
                 <table class="fine-table">
                     <thead>
                     <th>{{trans('messages.team')}}</th>
                     <th>{{trans('messages.abbreviation')}}</th>
                     <th>{{trans('messages.members-count')}}</th>
-                    <th colspan="3">{{trans('messages.actions')}}</th>
+                    <th colspan="4">{{trans('messages.actions')}}</th>
                     </thead>
-                    <!-- Table Body -->
                     <tbody>
                     @foreach ($tournament->signedTeams()->get() as $team)
                         <tr>
@@ -117,11 +115,13 @@
                             <td>
                                 <div>{{ $team->members()->get()->count() }}</div>
                             </td>
-                        </tr>
                         @include('teams.teams-table-actions')
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>
+
+                <!-- PAGINATION -->
                 @else
                     {{trans('messages.no-teams')}}
                 @endif

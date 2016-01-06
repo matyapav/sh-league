@@ -26,3 +26,15 @@
         confirmDelete({{$tournament->id}});
     </script>
 </td>
+
+@if(isset($team))
+<td id="action">
+    <form id="leave-form" action="/teams/leaveTournament/{{ $team->id }}"
+          class="@if(!$team->tournaments()->get()->contains($tournament) || !Auth::user()->teams()->get()->contains($team))not-visible @endif " >
+        <input type="hidden" name="tour_leave_id" value="{{$tournament->id}}">
+        <button type="submit" class="btn-wrap-content orange" >
+            <i class="fa fa-sign-out"></i>
+        </button>
+    </form>
+</td>
+@endif
