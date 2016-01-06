@@ -1,0 +1,159 @@
+
+.navbar {
+    background-color: darkgrey;
+    min-height: 60px;
+    background:
+          linear-gradient(315deg, transparent 10px, #656565 0) bottom right,
+          linear-gradient(45deg,  transparent 10px, #656565 0) bottom left;
+    background-size: 55% 100%;
+    background-repeat: no-repeat;
+}
+
+.navbar h1{
+    padding-top: 20px;
+    margin-bottom: 5px;
+}
+
+
+.body_content {
+  background-color: rgba(0,0,0,0.7);
+  height: 420px;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: auto;
+  display: inline-block;
+  width: 80%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.menu {
+  width: 90%;
+  background-image: url('../images/footer_lodyas/footer_lodyas.png');
+  height: 40px;
+  margin: 5px 0;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.menu-items {
+    margin: 0;
+}
+.menu-items li{
+    display: inline;
+    font-size: 1.2em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.menu-items li > a{
+   text-decoration: none;
+}
+
+.panel-heading{
+  width: 90%;
+  font-size: x-large;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.required{
+    font-size: 2em;
+    color: #ff0000;
+}
+
+
+.panel-heading.orange{
+    background-color: orange;
+}
+
+
+.not-visible{
+    display: none;
+}
+
+[data-tip] {
+    position:relative;
+
+}
+[data-tip]:before {
+    content:'';
+    /* hides the tooltip when not hovered */
+    display:none;
+    content:'';
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #1a1a1a;
+    position:absolute;
+    top:15px;
+    left:5px;
+    z-index:8;
+    font-size:0;
+    line-height:0;
+    width:0;
+    height:0;
+}
+[data-tip]:after {
+    display:none;
+    content:attr(data-tip);
+    position:absolute;
+    top:20px;
+    left:0px;
+    padding:5px 8px;
+    background:#1a1a1a;
+    color:#fff;
+    z-index:9;
+    font-size: 0.75em;
+    height: auto;
+    width: 100px;
+    line-height:18px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    white-space:normal;
+    word-wrap:normal;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+    display:block;
+}
+
+.pagination {
+    display: inline-block;
+    padding-right: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+    margin: 7px;
+    font-size: 1.2em;
+}
+
+.logged-user-div {
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 180px;
+    height: 60px;
+}
+.logged-user-div img{
+    width: 60px;
+    height: 100%;
+}
+
+.logged-user-div .user-info{
+    color: white;
+    text-align: center;
+    float:right;
+    width: 120px;
+    height: 100%;
+}
