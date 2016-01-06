@@ -1,10 +1,10 @@
 <?php namespace App\Providers;
-
+//todo comment file
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use DateTime;
-
+//todo comment class
 class AppServiceProvider extends ServiceProvider {
 
 	/**

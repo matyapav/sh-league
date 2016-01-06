@@ -1,8 +1,8 @@
 <?php
-
+//todo comment file
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+//todo comment class
 class CreatePasswordResetsTable extends Migration {
 
 	/**

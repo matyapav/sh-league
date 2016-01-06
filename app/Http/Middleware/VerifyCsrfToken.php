@@ -1,8 +1,8 @@
 <?php namespace App\Http\Middleware;
-
+//todo comment file
 use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
-
+//todo comment class
 class VerifyCsrfToken extends BaseVerifier {
 
 	/**

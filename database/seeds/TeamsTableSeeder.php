@@ -1,10 +1,15 @@
 <?php
-
+//todo comment file
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Team;
-
+//todo comment class
 class TeamsTableSeeder extends Seeder {
+
+    /**
+     * Fills teams table
+     *
+     */
     public function run()
     {
         $faker = Faker::create();

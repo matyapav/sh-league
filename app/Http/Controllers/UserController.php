@@ -10,29 +10,38 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller {
 
+	/**
+	 * Authenticated user leaves given team if user is member of it. Captain cannot leave team until he/she forwars the captain role
+	 */
 	public function leaveTeam($id){
 		$team = Team::findOrFail($id);
 		if($team->members()->get()->contains(Auth::user())){
 			if($team->captain->id == Auth::user()->id){
-				return Redirect::back()->withErrors('Captain cannot leave team. You must give someone captain role first');
+				return Redirect::back()->withErrors('Captain cannot leave team. You must give someone captain role first'); //TODO tranlate
 			}
 			$team->members()->detach(Auth::user()->id);
 			return Redirect::back();
 		}
-		return Redirect::back()->withErrors('You are not member of this team');
+		return Redirect::back()->withErrors('You are not member of this team'); //TODO translate
 	}
 
+    /**
+     * Accepts invitation from team
+     */
 	public function acceptInvitation($id){
 		$team = Team::findOrFail($id);
 		$team->sentInvitations()->detach(Auth::user()->id);
 		$team->members()->attach(Auth::user()->id);
-		return Redirect::back()->with('message', 'Invitation accepted');
+		return Redirect::back()->with('message', 'Invitation accepted'); //TODO translate
 	}
 
+    /**
+     * Declines invitation from team
+     */
 	public function declineInvitation($id){
 		$team = Team::findOrFail($id);
 		$team->sentInvitations()->detach(Auth::user()->id);
-		return Redirect::back()->with('message', 'Invitation decline');
+		return Redirect::back()->with('message', 'Invitation declined'); //TODO translate
 	}
 
     /**
@@ -144,29 +153,9 @@ class UserController extends Controller {
 			return redirect('/users');
 		}else{
 
-			$errorMsg = "The user ".$user->nickname." is another admin. Can't delete it. Admin can only delete himself";
+			$errorMsg = "The user ".$user->nickname." is another admin. Can't delete it. Admin can only delete himself"; //TODO translate
 			return redirect('/users')->withErrors([$errorMsg]);
 		}
 	}
-
-
-    /* SETTING ROLES .. NOT YET SUPPORTED
-    public function setRoles($id){
-
-        $user = User::findOrFail($id);
-        $userRoles = $user->roles()->get();
-        $alreadyHasRole = false;
-        foreach(Input::get('role') as $key=>$role){
-            foreach($userRoles as $userRole){
-                if($userRole->id == $role->id){
-                    $alreadyHasRole = true;
-                }
-            }
-            if(!$alreadyHasRole){
-                $user->roles()->attach($role->id);
-            }
-        }
-        return redirect('users/show/'.$id);
-    }*/
 
 }

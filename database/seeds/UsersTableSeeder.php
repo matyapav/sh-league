@@ -1,10 +1,15 @@
 <?php
-
+//todo comment file
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\User;
-
+//todo comment class
 class UsersTableSeeder extends Seeder {
+
+    /**
+     * Fills users table
+     *
+     */
     public function run()
     {
         $faker = Faker::create();

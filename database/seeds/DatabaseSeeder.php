@@ -1,8 +1,8 @@
 <?php
-
+//todo comment file
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-
+//todo comment class
 class DatabaseSeeder extends Seeder {
 
 	/**

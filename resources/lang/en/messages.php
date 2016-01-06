@@ -1,5 +1,5 @@
 <?php
-
+//todo comment file
 return [
     //app.blade
     'app-heading' => 'SH League administration',

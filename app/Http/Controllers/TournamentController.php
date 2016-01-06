@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+//todo comment file
 use App\Http\Requests;
 use App\Tournament;
 use App\League;
@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-
+//todo comment class
 class TournamentController extends Controller {
 
 

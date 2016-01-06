@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers\Auth;
-
+//todo comment file
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-
+//todo comment class
 class PasswordController extends Controller {
 
 	/*

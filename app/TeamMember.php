@@ -1,7 +1,7 @@
 <?php namespace App;
-
+//todo comment file
 use Illuminate\Database\Eloquent\Model;
-
+//todo comment class PROBABLY NOT NEEDED MODEL
 class TeamMember extends Model {
 
     // Add your validation rules here

@@ -1,12 +1,12 @@
 <?php namespace App;
-
+//todo comment file
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Auth;
-
+//todo comment class
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -33,7 +33,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $hidden = ['password', 'remember_token'];
 
 	/**
-	 * Returns invitations from teams of given user
+	 * Returns invitations from teams of given user (Relationship) - call get() on it to get collection
+	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany correcponding relationship
 	 */
 	public function invitations(){
@@ -41,7 +42,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	/**
-	 * Get all teams associated with given user
+	 * Get all teams associated with given user (Relationship) - call get() on it to get collection
+	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany corresponding relationship
 	 */
 	public function teams(){
@@ -49,7 +51,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	/**
-	 * Get all teams where user is captain
+	 * Get all teams where user is captain (Relationship) - call get() on it to get collection
+	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany corresponding relationship
 	 */
 	public function teamsWhereUserIsCaptain(){
@@ -57,7 +60,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	/**
-	 * Get leagues which user created
+	 * Get leagues which user created (Relationship) - call get() on it to get collection
+	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany corresponding relationship
 	 */
 	public function createdLeagues(){
@@ -65,7 +69,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	/**
-	 * Get roles associated with given user
+	 * Get roles associated with given user (Relationship) - call get() on it to get collection
+	 *
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany corresponding relationship
 	 */
 	public function roles(){
@@ -74,6 +79,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	/**
 	 * Rules for validating authentication
+	 *
 	 * @var array
 	 */
 	public static $auth_rules = [
@@ -83,6 +89,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	/**
 	 * Rules for validating forms for creating and updating Users
+	 *
 	 * @var array
 	 */
 	public static $register_rules = [
@@ -95,6 +102,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	/**
 	 * Checks if user has specific role .. note  that normal user has no role (so his role is null)
+	 *
 	 * @param null $rolename Name of the role which can be null. If null no role is given.
 	 * @return bool true if user has this role, false if not
 	 */
@@ -109,6 +117,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return false;
 	}
 
+	/**
+	 * Checks if authenticated user is captain of given team
+	 *
+	 * @param $team specific team
+	 * @return bool true if user is captain of team, false otherwise
+	 */
 	public function isCaptain($team){
 		if(is_null($team->captain)){
 			return false;

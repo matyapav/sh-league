@@ -1,11 +1,13 @@
 <?php namespace App;
-
+//todo comment file
 use Illuminate\Database\Eloquent\Model;
-
+//todo comment class
 class Team extends Model {
 
+    protected $table = 'teams';
     /**
-     * Defines rules for validation
+     * Defines rules for validation of team
+     *
      * @param $id pass this argument if you are updating record .. prevents error from unique fields validation
      * @return array Array of rules used by Validator
      */
@@ -25,44 +27,48 @@ class Team extends Model {
         return $rules;
     }
 
-    // Don't forget to fill this array
+    /**
+     * The attributes that are mass assignable
+     *
+     * @var array array of fillable values
+     */
     protected $fillable = ['name','avatar','abbreviation', 'description'];
 
 
     /**
-     * Get users associated with the given team (team members)
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * Get users associated with the given team (team members) (Relationship) - call get() on it to get collection
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany corresponding relationship
      */
     public function members(){
         return $this->belongsToMany('App\User', 'team_members');
     }
 
     /**
-     * Get all sent invitations to users of given team
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * Get all sent invitations to users of given team (Relationship) - call get() on it to get teams
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany corresponding relationship
      */
     public function sentInvitations(){
         return $this->belongsToMany('App\User', 'invitations');
     }
 
     /**
-     * Get all tournaments where given team is signed in
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * Get all tournaments where given team is signed in (Relationship) - call get() on it to get collection
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany corresponding relationship
      */
     public function tournaments(){
         return $this->belongsToMany('App\Tournament','tournament_teams')->withTimestamps();
     }
 
     /**
-     * Get the captain relationship between team and user
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * Get the captain relationship between team and user (Relationship) - call without () to get the user object
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo corresponding relationship
      */
     public function captain(){
         return $this->belongsTo('App\User');
     }
-
-   /* public static function get($id){
-        return Team::find($id);
-    }*/
 
 }

@@ -1,9 +1,9 @@
 <?php namespace App\Http\Middleware;
-
+//todo comment file
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-
+//todo comment class
 class AdminMiddleware {
 
 

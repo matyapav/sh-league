@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+//todo comment file
 use App\Http\Requests;
 use App\Team;
 use App\User;
@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+//TODO comment class
 class TeamController extends Controller {
 
 	/**
- * Invite another user to a team
- * @param $id
- * @return mixed
- */
+	 * Invite another user to a team
+	 * @param $id
+	 * @return mixed
+ 	*/
     public function inviteUser($id){
         $team = Team::findOrFail($id);
         foreach ($team->sentInvitations()->get() as $invitation) {
@@ -107,7 +107,7 @@ class TeamController extends Controller {
 		if (Auth::user()->id == $team->captain || Auth::user()->hasRole('admin')) {
 			return view('/teams/team-create', ['edited' => $team]);
 		}else{
-			return redirect('/teams')->withErrors('You are not admin or captain of this team');
+			return redirect('/teams')->withErrors('You are not admin or captain of this team'); //TODO translate
 		}
 	}
 
@@ -135,7 +135,7 @@ class TeamController extends Controller {
 			$team->save();
 			return redirect('/teams');
 		}else{
-			return redirect('/teams')->withErrors('You are not admin or captain of this team');
+			return redirect('/teams')->withErrors('You are not admin or captain of this team'); //TODO translate
 		}
 		//
 	}
@@ -153,7 +153,7 @@ class TeamController extends Controller {
 			$team->delete();
 			return redirect('/teams');
 		}else{
-			return redirect('/teams')->withErrors('You are not admin or captain of this team');
+			return redirect('/teams')->withErrors('You are not admin or captain of this team'); //TODO translate
 		}
 
 	}

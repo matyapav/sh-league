@@ -1,15 +1,19 @@
 <?php namespace App;
-
+//todo comment file
 use Illuminate\Database\Eloquent\Model;
-
+//todo comment class
 class Tournament extends Model {
 
-    // Add your validation rules here
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
     protected $table = 'tournaments';
 
-
     /**
-     * Defines rules for validation
+     * Defines rules for validation of tournament
+     *
      * @param $id pass this argument if you are updating record .. prevents error from unique fields validation
      * @return array Array of rules used by Validator
      */
@@ -31,28 +35,35 @@ class Tournament extends Model {
         return $rules;
     }
 
-    // Don't forget to fill this array
+    /**
+     * The attributes that are mass assignable
+     *
+     * @var array array of fillable values
+     */
     protected $fillable = ['league_id', 'min_number_of_teams', 'max_number_of_teams', 'start_date', 'end_date', 'name', 'description'];
 
     /**
-     * Get all teams which are signed in given tournament
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * Get all teams which are signed in given tournament (Relationship) - call get() on it to get collection
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany corresponding relationship
      */
     public function signedTeams(){
         return $this->belongsToMany('App\Team', 'tournament_teams');
     }
 
     /**
-     * Get league which tournament belongs to.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * Get league which tournament belongs to. (Relationship) - call without () to get league object
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo corresponding relationship
     */
     public function league(){
         return $this->belongsTo('App\League');
     }
 
     /**
-     * Get matches in given tournament
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get matches in given tournament (Relationship) - call get() on it to get collection
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany corresponding relationship
      */
     public function matches(){
         return $this->hasMany('App\Match', 'tournament_id', 'id');

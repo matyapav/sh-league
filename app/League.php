@@ -1,15 +1,21 @@
 <?php namespace App;
-
+//todo comment file
 use Illuminate\Database\Eloquent\Model;
-
+//todo comment class
 class League extends Model {
 
 
+    /**
+     * The database table used by the model.
+     *
+     * @var string name of table
+     */
     protected $table = 'leagues';
 
 
     /**
      * Defines rules for validation
+     *
      * @param $id pass this argument if you are updating record .. prevents error from unique fields validation
      * @return array Array of rules used by Validator
      */
@@ -28,28 +34,35 @@ class League extends Model {
         return $rules;
     }
 
-    // Don't forget to fill this array
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array array of fillable values
+     */
     protected $fillable = ['name','abbreviation', 'description', 'game_id'];
 
     /**
-     * Get tournaments in league
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get tournaments in league (Relationship) - call get() on it to get collection
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany corresponding relationship
      */
     public function tournaments(){
         return $this->hasMany('App\Tournament', 'league_id', 'id');
     }
 
     /**
-     * Get game which league belongs to
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * Get game which league belongs to (Relationship) - call without () to get game object
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo corresponding relationship
      */
     public function game(){
         return $this->belongsTo('App\Game');
     }
 
     /**
-     * Get creator of the league
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * Get creator of the league (Relationship) - call without () to get user object
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo corresponding relationship
      */
     public function creator(){
         return $this->belongsTo('App\User', 'created_by', 'id');

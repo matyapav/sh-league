@@ -1,21 +1,37 @@
 <?php namespace App;
-
+//todo comment file
 use Illuminate\Database\Eloquent\Model;
-
+//todo comment class
 class Game extends Model {
 
-    // Add your validation rules here
+    /**
+     * The database table used by the model.
+     *
+     * @var string name of table
+     */
+    protected $table = 'games';
+
+    /**
+     * Validation rules for game
+     *
+     * @var array array of rules
+     */
     public static $rules = [
         'name' => 'required',
         'abbreviation' => 'required'
     ];
 
-    // Don't forget to fill this array
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array array of fillable values
+     */
     protected $fillable = ['name', 'abbreviation', 'type', 'description'];
 
     /**
-     * Get leagues associated with game
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get leagues associated with game (Relationship) - call get() on it to get collection
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany corresponding relationship
      */
     public function leagues(){
         return $this->hasMany('App\League');

@@ -1,8 +1,8 @@
 <?php namespace App\Http\Middleware;
-
+//todo comment file
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-
+//todo comment class
 class Authenticate {
 
 	/**

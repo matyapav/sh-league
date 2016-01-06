@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers\Auth;
-
+//todo comment file
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+//todo comment class
 class AuthController extends Controller {
 
 	/*
