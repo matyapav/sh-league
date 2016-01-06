@@ -52,7 +52,7 @@
                         </tr>
                     </table>
                 </div>
-                <div>
+                <div class="info-right">
                 <!-- USER INVITATION -->
                 @if(Auth::user()->isCaptain($team))
                     <form action="{{url('/teams/inviteUser/'.$team->id)}}">

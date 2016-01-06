@@ -42,7 +42,7 @@
                         <label for="description" class="input-label">
                             {{trans('messages.description')}}
                         </label>
-                        <input type="text" class="input-field" name="description" value="@if(!is_null($edited)){{$edited->description}}@else{{old('description')}}@endif" placeholder="">
+                        <input type="text" class="input-field" name="description" value="@if(!is_null($edited)){{$edited->description}}@else{{old('description')}}@endif" placeholder="" required>
                         <sup data-tip="{{trans('messages.team-desc-hint')}} {{trans('messages.required-field')}}">
                             <i class="fa fa-asterisk"></i>
                         </sup>

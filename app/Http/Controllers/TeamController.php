@@ -40,7 +40,7 @@ class TeamController extends Controller {
 	 */
 	public function index()
 	{
-		$teams = Team::orderBy('created_at', 'desc')->paginate(5);
+		$teams = Team::orderBy('created_at', 'desc')->paginate(10);
 		return view('/teams/teams', ['teams' => $teams]);
 	}
 

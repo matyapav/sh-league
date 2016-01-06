@@ -79,7 +79,7 @@
                         </tr>
                     </table>
                 </div>
-                <div>
+                <div class="info-right">
 
                 <!-- Information based on number of teams -->
                 <h3>{{trans('messages.teams-in')}} {{count($tournament->signedTeams()->get())}}/{{$tournament->max_number_of_teams}}</h3>

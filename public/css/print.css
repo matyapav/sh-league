@@ -1,0 +1,68 @@
+.navbar{
+    display: none;
+}
+
+.logged-user-div{
+    display: none;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    color: black;
+}
+
+.body_content{
+    height: auto;
+}
+
+#actions{
+    display:none;
+}
+
+
+#action{
+    display:none;
+}
+
+.fine-table{
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fine-table td{
+     border: 1px solid black;
+ }
+
+.fine-table th{
+    border: 1px solid black;
+}
+
+.info-box{
+    max-height: 100%;
+    width: 100%;
+    height: auto;
+    color:black;
+    float: none;
+}
+
+.info-table{
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table td{
+    border: 1px solid black;
+}
+
+.info-table th{
+    border: 1px solid black;
+}
+
+.info-right{
+    color: black;
+    overflow: hidden;
+    float: none;
+    width: 100%;
+}

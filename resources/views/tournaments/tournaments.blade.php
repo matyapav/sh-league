@@ -23,7 +23,7 @@
                             <th>{{trans('messages.max-teams')}}</th>
                             <th>{{trans('messages.teams-in')}}</th>
                             <th>{{trans('messages.league')}}</th>
-                            <th colspan="3">{{trans('messages.actions')}}</th>
+                            <th colspan="3" id="actions">{{trans('messages.actions')}}</th>
                         </thead>
                         <!-- Table Body -->
                         <tbody>

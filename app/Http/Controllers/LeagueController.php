@@ -19,7 +19,7 @@ class LeagueController extends Controller {
 	 */
 	public function index()
 	{
-		$leagues = League::orderBy('created_at', 'desc')->paginate(5);
+		$leagues = League::orderBy('created_at', 'desc')->paginate(10);
 		return view('/leagues/leagues', ['leagues' => $leagues]);
 	}
 

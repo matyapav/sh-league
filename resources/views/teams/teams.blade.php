@@ -21,7 +21,7 @@
                         <th>{{trans('messages.team')}}</th>
                         <th>{{trans('messages.abbreviation')}}</th>
                         <th>{{trans('messages.members-count')}}</th>
-                        <th colspan="3">{{trans('messages.actions')}}</th>
+                        <th colspan="4" id="actions">{{trans('messages.actions')}}</th>
                     </thead>
                     <!-- Table Body -->
                     <tbody>

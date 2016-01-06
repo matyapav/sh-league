@@ -7,6 +7,7 @@
     <link href="{{ asset('css/app.css') }}" media="all" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/common.css') }}" media="all" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/jquery-ui.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <link rel='stylesheet' href='{{ asset('css/print.css') }}' media='print' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

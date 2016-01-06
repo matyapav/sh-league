@@ -13,7 +13,7 @@
                             <th>{{trans('messages.nickname')}}</th>
                             <th>{{trans('messages.email')}}</th>
                             <th>{{trans('messages.role')}}</th>
-                            <th colspan="2">{{trans('messages.actions')}}</th>
+                            <th colspan="2" id="actions">{{trans('messages.actions')}}</th>
                         </thead>
                         <!-- Table Body -->
                         <tbody>

@@ -86,90 +86,93 @@
                         </tr>
                     </table>
                 </div>
-                <!-- TEAMS ASSOCIATED WITH USER -->
-                <h2>{{trans('messages.user-teams')}}</h2>
-                <table class="fine-table" id="teams-table">
-                    <!-- Table Headings -->
-                    <thead>
-                    <th>{{trans('messages.team')}}</th>
-                    <th>{{trans('messages.abbreviation')}}</th>
-                    <th>{{trans('messages.members-count')}}</th>
-                    <th>{{trans('messages.user-role-in-team')}}</th>
-                    <th colspan="4">{{trans('messages.actions')}}</th>
-                    </thead>
-                    <!-- Table Body -->
-                    <tbody>
-                    @foreach ($user->teams()->get() as $team)
-                        <tr>
-                            <!-- Team Details -->
-                            <td>
-                                <div>{{ $team->name }}</div>
-                            </td>
-                            <td>
-                                <div>{{ $team->abbreviation }}</div>
-                            </td>
-                            <td>
-                                <div>{{ $team->members()->get()->count() }}</div>
-                            </td>
-                            <td>
-                                <div>
-                                    @if(!is_null($team->captain) && $team->captain->id == $user->id)
-                                        Captain
-                                    @else
-                                        Member
-                                    @endif
-                                </div>
-                            </td>
-                            @include('teams.teams-table-actions')
-                        </tr>
-                    @endforeach
-
-                    </tbody>
-                </table>
-
-                <!-- INVITATIONS FROM TEAMS -->
-                @if(Auth::user()->id == $user->id)
-                    <h2>Invitations to teams</h2>
-                    <table class="fine-table" id="invitations-table">
+                <br>
+                <div class="info-right">
+                    <!-- TEAMS ASSOCIATED WITH USER -->
+                    <h2>{{trans('messages.user-teams')}}</h2>
+                    <table class="fine-table" id="teams-table">
                         <!-- Table Headings -->
                         <thead>
                         <th>{{trans('messages.team')}}</th>
-                        <th>{{trans('messages.captain')}}</th>
-                        <th colspan="2">{{trans('messages.actions')}}</th>
+                        <th>{{trans('messages.abbreviation')}}</th>
+                        <th>{{trans('messages.members-count')}}</th>
+                        <th>{{trans('messages.user-role-in-team')}}</th>
+                        <th colspan="4">{{trans('messages.actions')}}</th>
                         </thead>
                         <!-- Table Body -->
                         <tbody>
-                        @foreach ($user->invitations()->get() as $invitation)
+                        @foreach ($user->teams()->get() as $team)
                             <tr>
-                                <!-- Invitation Details -->
+                                <!-- Team Details -->
                                 <td>
-                                    <div>{{ $invitation->name }}</div>
+                                    <div>{{ $team->name }}</div>
                                 </td>
                                 <td>
-                                    <div>{{ $invitation->captain->name }}</div>
+                                    <div>{{ $team->abbreviation }}</div>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::to('users/acceptInvitation/'.$invitation->id) }}">
-                                        <button class="btn-common green" >
-                                            <i class="fa fa-check"></i>
-                                            Accept
-                                        </button>
-                                    </a>
+                                    <div>{{ $team->members()->get()->count() }}</div>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::to('users/declineInvitation/'.$invitation->id) }}">
-                                        <button class="btn-common red" >
-                                            <i class="fa fa-times"></i>
-                                            Decline
-                                        </button>
-                                    </a>
+                                    <div>
+                                        @if(!is_null($team->captain) && $team->captain->id == $user->id)
+                                            Captain
+                                        @else
+                                            Member
+                                        @endif
+                                    </div>
                                 </td>
+                                @include('teams.teams-table-actions')
                             </tr>
                         @endforeach
 
                         </tbody>
                     </table>
+
+                    <!-- INVITATIONS FROM TEAMS -->
+                    @if(Auth::user()->id == $user->id)
+                        <h2>Invitations to teams</h2>
+                        <table class="fine-table" id="invitations-table">
+                            <!-- Table Headings -->
+                            <thead>
+                            <th>{{trans('messages.team')}}</th>
+                            <th>{{trans('messages.captain')}}</th>
+                            <th colspan="2">{{trans('messages.actions')}}</th>
+                            </thead>
+                            <!-- Table Body -->
+                            <tbody>
+                            @foreach ($user->invitations()->get() as $invitation)
+                                <tr>
+                                    <!-- Invitation Details -->
+                                    <td>
+                                        <div>{{ $invitation->name }}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{ $invitation->captain->name }}</div>
+                                    </td>
+                                    <td>
+                                        <a href="{{ URL::to('users/acceptInvitation/'.$invitation->id) }}">
+                                            <button class="btn-common green" >
+                                                <i class="fa fa-check"></i>
+                                                Accept
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ URL::to('users/declineInvitation/'.$invitation->id) }}">
+                                            <button class="btn-common red" >
+                                                <i class="fa fa-times"></i>
+                                                Decline
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+                        </table>
                     @endif
+                </div>
             </div>
         </div>
     </div>

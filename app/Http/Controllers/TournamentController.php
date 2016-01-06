@@ -18,7 +18,7 @@ class TournamentController extends Controller {
 	 */
 	public function index()
 	{
-		$tournaments = Tournament::orderBy('created_at', 'desc')->paginate(5);
+		$tournaments = Tournament::orderBy('created_at', 'desc')->paginate(10);
 		return view('/tournaments/tournaments', ['tournaments' => $tournaments]);
 	}
 

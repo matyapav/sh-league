@@ -21,7 +21,7 @@
                             <th>{{trans('messages.abbreviation')}}</th>
                             <th>{{trans('messages.tournament-number')}}</th>
                             <th>{{trans('messages.game')}}</th>
-                            <th colspan="3">{{trans('messages.actions')}}</th>
+                            <th colspan="3" id="actions">{{trans('messages.actions')}}</th>
                         </thead>
                         <br>
                         <br>

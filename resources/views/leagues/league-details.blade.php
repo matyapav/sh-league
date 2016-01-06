@@ -63,7 +63,7 @@
                         </tr>
                     </table>
                 </div>
-                <div>
+                <div class="info-right">
 
                 <h3>{{trans('messages.tournaments-in-league')}}</h3>
                 @if (count($league->tournaments()->get()) > 0)
