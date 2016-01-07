@@ -1,7 +1,16 @@
-<?php namespace App\Providers;
+<?php
+/**
+ * This file contains configuration service provider.
+ */
+namespace App\Providers;
+
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Laravel default ConfigServiceProvider. Not used in this project, but leaved here for possible future needs.
+ * @package App\Providers
+ */
 class ConfigServiceProvider extends ServiceProvider {
 
 	/**

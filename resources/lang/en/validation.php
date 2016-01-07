@@ -1,4 +1,8 @@
 <?php
+/**
+ * This file contains English translations of Validation messages.
+ */
+namespace lang\en;
 
 return [
 

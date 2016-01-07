@@ -1,14 +1,7 @@
 <?php
-//todo comment file
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
+/**
+ * This file defines all possible routes for application.
+ *
 */
 
 //Home ...
@@ -22,7 +15,6 @@ Route::get('/help', function() {
 });
 
 //User routes ...
-
 Route::get('/users', ['middleware' => ['auth'], 'uses' => 'UserController@index']);
 Route::get('/users/show/{id}', ['middleware' => ['auth'], 'uses'=> 'UserController@show']);
 Route::any('/users/delete/{id}', ['middleware' => ['auth','admin'], 'uses'=> 'UserController@destroy']);
@@ -35,6 +27,7 @@ Route::get('/users/declineInvitation/{id}', ['middleware' => ['auth'], 'uses' =>
 Route::get('/users/leaveTeam/{id}', ['middleware' => ['auth'], 'uses' => 'UserController@leaveTeam']);
 Route::get('/users/kickUser/{id}', ['middleware' => ['auth'], 'uses'=> 'UserController@kickUser']);
 Route::get('/users/forwardCaptainRole/{id}', ['middleware' => ['auth'], 'uses'=> 'UserController@forwardCaptainRole']);
+
 //Team routes ...
 Route::get('/teams', ['middleware' => ['auth'], 'uses' => 'TeamController@index']);
 Route::get('/teams/show/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@show']);
@@ -46,6 +39,7 @@ Route::any('/teams/update/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamContro
 Route::get('/teams/inviteUser/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@inviteUser']);
 Route::get('/teams/joinTournament/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@joinTournament']);
 Route::get('/teams/leaveTournament/{id}', ['middleware' => ['auth'], 'uses'=> 'TeamController@leaveTournament']);
+
 //League routes
 Route::get('/leagues', ['middleware' => ['auth'], 'uses' => 'LeagueController@index']);
 Route::get('/leagues/show/{id}', ['middleware' => ['auth'], 'uses'=> 'LeagueController@show']);

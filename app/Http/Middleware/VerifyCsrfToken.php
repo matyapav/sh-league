@@ -1,8 +1,16 @@
-<?php namespace App\Http\Middleware;
-//todo comment file
+<?php
+/**
+ * This file contains middleware for verifying CSRF token.
+ */
+namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
-//todo comment class
+
+/**
+ * VerifyCsrfToken verifies csrf token, which is needed for example while using POST requests. Laravel default.
+ * @package App\Http\Middleware
+ */
 class VerifyCsrfToken extends BaseVerifier {
 
 	/**

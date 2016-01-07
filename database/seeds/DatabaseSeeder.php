@@ -1,8 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains main Database seeder.
+ */
+namespace database\seeds;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-//todo comment class
+
+/**
+ * Class DatabaseSeeder calls database seeds.
+ */
 class DatabaseSeeder extends Seeder {
 
 	/**

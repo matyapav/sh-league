@@ -1,5 +1,9 @@
 <?php
-//todo comment file
+/**
+ * This file contains English translations of strings in application.
+ */
+namespace lang\en;
+
 return [
     //app.blade
     'app-heading' => 'SH League administration',

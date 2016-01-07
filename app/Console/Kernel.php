@@ -1,8 +1,16 @@
-<?php namespace App\Console;
+<?php
+/**
+ * This file contains Console Kernel.
+ */
+namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+/**
+ * Class Kernel defines application commands.
+ * @package App\Console
+ */
 class Kernel extends ConsoleKernel {
 
 	/**

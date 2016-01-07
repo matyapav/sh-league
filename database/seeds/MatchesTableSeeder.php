@@ -1,9 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains database seeder for Matches.
+ */
+namespace database\seeds;
+
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Match;
-//todo comment class
+/**
+ * Class MatchesTableSeeder creates Matches using Faker and save them into database. Not implemented yet.
+ */
 class MatchesTableSeeder extends Seeder {
 
     /**

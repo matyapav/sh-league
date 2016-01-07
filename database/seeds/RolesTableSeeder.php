@@ -1,9 +1,16 @@
 <?php
-//todo comment file
+/**
+ * This file contains database seeder for Roles.
+ */
+namespace database\seeds;
+
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Role;
-//todo comment class
+
+/**
+ * Class RolesTableSeeder creates Roles and save them into database.
+ */
 class RolesTableSeeder extends Seeder {
 
     /**

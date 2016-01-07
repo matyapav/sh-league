@@ -1,4 +1,8 @@
 <?php
+/**
+ * This file contains English translations for messages about password.
+ */
+namespace lang\en;
 
 return [
 

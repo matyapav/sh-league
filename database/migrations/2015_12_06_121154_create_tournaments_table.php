@@ -1,8 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains database migration.
+ */
+namespace database\migrations;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-//todo comment class
+
+/**
+ * Class CreateTournamentsTable defines db migration for Tournaments.
+ */
 class CreateTournamentsTable extends Migration {
 
 	/**

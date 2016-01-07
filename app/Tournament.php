@@ -1,7 +1,15 @@
-<?php namespace App;
-//todo comment file
+<?php
+/**
+ * This file contains model for Tournament.
+ */
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
-//todo comment class
+
+/**
+ * Tournament model
+ * @package App
+ */
 class Tournament extends Model {
 
     /**

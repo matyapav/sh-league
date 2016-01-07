@@ -1,9 +1,16 @@
 <?php
-//todo comment file
+/**
+ * This file contains database seeder for Games
+ */
+namespace database\seeds;
+
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Game;
-//todo comment class
+
+/**
+ * Class GamesTableSeeder creates Games using Faker and save them into database.
+ */
 class GamesTableSeeder extends Seeder {
 
 

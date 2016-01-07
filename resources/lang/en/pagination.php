@@ -1,4 +1,8 @@
 <?php
+/**
+ * This file contains English translations for pagination.
+ */
+namespace lang\en;
 
 return [
 

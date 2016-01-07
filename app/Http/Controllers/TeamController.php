@@ -1,5 +1,9 @@
-<?php namespace App\Http\Controllers;
-//todo comment file
+<?php
+/**
+ * This file contains controller for Teams.
+ */
+namespace App\Http\Controllers;
+
 use App\Http\Requests;
 use App\Team;
 use App\User;
@@ -8,10 +12,19 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-//TODO comment class
+
+/**
+ * TeamController handles mostly CRUD operations for Teams. Handles also another functionality such as inviting users
+ * or joining/leaving tournaments.
+ * @package App\Http\Controllers
+ */
 class TeamController extends Controller {
 
+    /**
+     * Leaves the tournament
+     * @param $id Id of team, which should leave tournament. Tournament is given within the input.
+     * @return mixed redirection back with error or success msg
+     */
     public function leaveTournament($id){
         $team = Team::findOrFail($id);
         if (Auth::user()->id == $team->captain->id || Auth::user()->hasRole('admin')) {
@@ -23,6 +36,11 @@ class TeamController extends Controller {
         }
     }
 
+    /**
+     * Joins tournament
+     * @param $id Id of team, which should join tournament. Tournament is given within the input.
+     * @return mixed redirection back with error or success msg
+     */
 	public function joinTournament($id){
 		$team = Team::findOrFail($id);
         if (Auth::user()->id == $team->captain->id || Auth::user()->hasRole('admin')) {
@@ -110,9 +128,9 @@ class TeamController extends Controller {
 		}
 
 		$team = new Team;
-		$team->name = Input::get('name');
-		$team->abbreviation = Input::get('abbreviation');
-		$team->description = Input::get('description');
+		$team->name = htmlspecialchars(Input::get('name'));
+		$team->abbreviation = htmlspecialchars(Input::get('abbreviation'));
+		$team->description = htmlspecialchars(Input::get('description'));
 		$team->captain()->associate(Auth::user()); //set creator as captain
 		$team->save();
 		$team->members()->attach(Auth::user()); //addd him to the team
@@ -169,9 +187,9 @@ class TeamController extends Controller {
 						->withInput()
 						->withErrors($validator);
 			}
-			$team->name = Input::get('name');
-			$team->abbreviation = Input::get('abbreviation');
-			$team->description = Input::get('description');
+			$team->name = htmlspecialchars(Input::get('name'));
+			$team->abbreviation = htmlspecialchars(Input::get('abbreviation'));
+			$team->description = htmlspecialchars(Input::get('description'));
 			$team->save();
 			return redirect('/teams');
 		}else{

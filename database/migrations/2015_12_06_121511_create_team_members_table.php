@@ -1,8 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains database migration.
+ */
+namespace database\migrations;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-//todo comment class
+
+/**
+ * Class CreateTeamMembersTable defines db migration for team_members pivot table between Team and User tables.
+ */
 class CreateTeamMembersTable extends Migration {
 
 	/**

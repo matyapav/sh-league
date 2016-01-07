@@ -1,8 +1,16 @@
-<?php namespace App\Providers;
+<?php
+/**
+ * This file contains route service provider.
+ */
+namespace App\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
+/**
+ * RouteServiceProvider defines where to find controllers defined in routes and map routes.
+ * @package App\Providers
+ */
 class RouteServiceProvider extends ServiceProvider {
 
 	/**
@@ -23,8 +31,6 @@ class RouteServiceProvider extends ServiceProvider {
 	public function boot(Router $router)
 	{
 		parent::boot($router);
-
-		//
 	}
 
 	/**

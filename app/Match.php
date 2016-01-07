@@ -1,7 +1,15 @@
-<?php namespace App;
-//todo comment file
+<?php
+/**
+ * This file contains model for Match.
+ */
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
-//todo comment class
+
+/**
+ * Match model - Not used yet
+ * @package App
+ */
 class Match extends Model {
 
     /**

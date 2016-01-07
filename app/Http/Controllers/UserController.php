@@ -1,4 +1,8 @@
-<?php namespace App\Http\Controllers;
+<?php
+/**
+ * This file contains controller for Users.
+ */
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Input;
@@ -8,6 +12,12 @@ use App\Team;
 use App\Role;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * UserController handles listing, showing or deleting User. Creation is leaved on class Registrar included by
+ * AuthController. Another functionality of this controller is e.g. accepting/declining invitation from teams, forwarding
+ * captain role etc.
+ * @package App\Http\Controllers
+ */
 class UserController extends Controller {
 
     /**
@@ -129,7 +139,7 @@ class UserController extends Controller {
 		if (Request::ajax()){
 				$users = User::all();
 				foreach ($users as $user) {
-					if ($user->nickname == Input::get('nickname')) {
+					if ($user->nickname == htmlspecialchars(Input::get('nickname'))) {
 						$msg = trans('messages.nickname-not-available');
 						$html = "<span class=\"red-text\" data-tip=\"$msg\"><i class=\"fa fa-times\"></i></span>";
 						return $html;
@@ -154,7 +164,7 @@ class UserController extends Controller {
         if (Request::ajax()){
             $users = User::all();
             foreach ($users as $user) {
-                if ($user->email == Input::get('email')) {
+                if ($user->email == htmlspecialchars(Input::get('email'))) {
                     $msg = trans('messages.email-not-available');
                     $html = "<span class=\"red-text\" data-tip=\"$msg\"><i class=\"fa fa-times\"></i></span>";
                     return $html;
@@ -194,7 +204,7 @@ class UserController extends Controller {
 	}
 
 	/**
-	 * Remove the user from storage.
+	 * Remove the user from storage. Admin only
 	 *
 	 * @param  int  $id
 	 * @return Response

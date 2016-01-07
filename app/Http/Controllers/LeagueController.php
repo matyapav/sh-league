@@ -1,5 +1,9 @@
-<?php namespace App\Http\Controllers;
-//todo comment file
+<?php
+/**
+ * This file contains controller for Leagues
+ */
+namespace App\Http\Controllers;
+
 use App\Http\Requests;
 use App\Game;
 use App\League;
@@ -7,8 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 
-use Illuminate\Http\Request;
-//todo comment class
+/**
+ * LeagueController handles mostly CRUD operations for Leagues.
+ * @package App\Http\Controllers
+ */
 class LeagueController extends Controller {
 
 
@@ -50,9 +56,9 @@ class LeagueController extends Controller {
 		}
 
 		$league = new League;
-		$league->name = Input::get('name');
-		$league->abbreviation = Input::get('abbreviation');
-		$league->description = Input::get('description');
+		$league->name = htmlspecialchars(Input::get('name'));
+		$league->abbreviation = htmlspecialchars(Input::get('abbreviation'));
+		$league->description = htmlspecialchars(Input::get('description'));
 		$league->game()->associate(Game::findOrFail(Input::get('game_id')));
 		$league->creator()->associate(Auth::user()); //assign creator of league
 		$league->save();
@@ -102,9 +108,9 @@ class LeagueController extends Controller {
 		}
 
 		$league = League::findOrFail($id);
-		$league->name = Input::get('name');
-		$league->abbreviation = Input::get('abbreviation');
-		$league->description = Input::get('description');
+		$league->name = htmlspecialchars(Input::get('name'));
+		$league->abbreviation = htmlspecialchars(Input::get('abbreviation'));
+		$league->description = htmlspecialchars(Input::get('description'));
 		$league->game()->associate(Game::findOrFail(Input::get('game_id')));
 		$league->save();
 		return redirect('/leagues');

@@ -1,12 +1,19 @@
-<?php namespace App;
-//todo comment file
+<?php
+/**
+ * This file contains model for User.
+ */
+namespace App;
+
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Illuminate\Support\Facades\Auth;
-//todo comment class
+
+/**
+ * User model
+ * @package App
+ */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;

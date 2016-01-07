@@ -1,9 +1,16 @@
-<?php namespace App\Services;
-
+<?php
+/**
+ * This file contains Registrar service.
+ */
+namespace App\Services;
 use App\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
+/**
+ * Class Registrar validates and registers new User of application.
+ * @package App\Services
+ */
 class Registrar implements RegistrarContract {
 
 	/**
@@ -30,14 +37,14 @@ class Registrar implements RegistrarContract {
 	public function create(array $data)
 	{
 		return User::create([
-			'nickname' => $data['nickname'],
+			'nickname' => htmlspecialchars($data['nickname']),
 			'avatar' => $data['avatar'],
-			'email' => $data['email'],
-			'city' => $data['city'],
-			'state'=> $data['state'],
+			'email' => htmlspecialchars($data['email']),
+			'city' => htmlspecialchars($data['city']),
+			'state'=> htmlspecialchars($data['state']),
 			'birthdate'=>$data['birthdate'],
-			'name'=> $data['name'],
-			'info'=> $data['info'],
+			'name'=> htmlspecialchars($data['name']),
+			'info'=> htmlspecialchars($data['info']),
 			'password' => bcrypt($data['password']),
 		]);
 	}

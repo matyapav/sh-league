@@ -1,13 +1,20 @@
-<?php namespace App\Http\Controllers;
-//todo comment file
+<?php
+/**
+ * This file contains controller for Tournaments.
+ */
+namespace App\Http\Controllers;
+
 use App\Http\Requests;
 use App\Tournament;
 use App\League;
 use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Http\Request;
-//todo comment class
+
+/**
+ * TournamentController handles mostly CRUD operations for Tournaments.
+ * @package App\Http\Controllers
+ */
 class TournamentController extends Controller {
 
 
@@ -49,13 +56,13 @@ class TournamentController extends Controller {
 		}
 
 		$tournament = new Tournament ;
-		$tournament->name = Input::get('name');
-		$tournament->type = Input::get('type');
+		$tournament->name = htmlspecialchars(Input::get('name'));
+		$tournament->type = htmlspecialchars(Input::get('type'));
 		$tournament->min_number_of_teams = Input::get('min_number_of_teams');
 		$tournament->max_number_of_teams = Input::get('max_number_of_teams');
 		$tournament->start_date = Input::get('start_date');
 		$tournament->end_date = Input::get('end_date');
-		$tournament->description = Input::get('description');
+		$tournament->description = htmlspecialchars(Input::get('description'));
 		$tournament->league()->associate(League::findOrFail(Input::get('league_id')));
 		$tournament->save();
 		return redirect('/tournaments');
@@ -104,13 +111,13 @@ class TournamentController extends Controller {
 		}
 
 		$tournament = Tournament::findOrFail($id);
-		$tournament->name = Input::get('name');
-		$tournament->type = Input::get('type');
+		$tournament->name = htmlspecialchars(Input::get('name'));
+		$tournament->type = htmlspecialchars(Input::get('type'));
 		$tournament->min_number_of_teams = Input::get('min_number_of_teams');
 		$tournament->max_number_of_teams = Input::get('max_number_of_teams');
 		$tournament->start_date = Input::get('start_date');
 		$tournament->end_date = Input::get('end_date');
-		$tournament->description = Input::get('description');
+		$tournament->description = htmlspecialchars(Input::get('description'));
 		$tournament->league()->associate(League::findOrFail(Input::get('league_id')));
 		$tournament->save();
 		return redirect('/tournaments');

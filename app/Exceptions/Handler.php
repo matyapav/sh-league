@@ -1,8 +1,16 @@
-<?php namespace App\Exceptions;
+<?php
+/**
+ * This file contains class Handler.
+ */
+namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+/**
+ * Laravel default exception handler.
+ * @package App\Exceptions
+ */
 class Handler extends ExceptionHandler {
 
 	/**

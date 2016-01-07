@@ -1,8 +1,17 @@
-<?php namespace App\Http\Middleware;
-//todo comment file
+<?php
+/**
+ * This file contains middleware for authentication.
+ */
+namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-//todo comment class
+
+/**
+ * Authenticate is laravel default middleware, which decides if user can access routes, which have auth middleware.
+ * Laravel default.
+ * @package App\Http\Middleware
+ */
 class Authenticate {
 
 	/**

@@ -1,9 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains database seeder for Teams.
+ */
+namespace database\seeds;
+
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Team;
-//todo comment class
+/**
+ * Class TeamsTableSeeder creates Teams using Faker and save them into database.
+ */
 class TeamsTableSeeder extends Seeder {
 
     /**

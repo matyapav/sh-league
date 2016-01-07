@@ -1,7 +1,16 @@
-<?php namespace App;
-//todo comment file
+<?php
+
+/**
+ * This file contains model for League.
+ */
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
-//todo comment class
+
+/**
+ * League model
+ * @package App
+ */
 class League extends Model {
 
 

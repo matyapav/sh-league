@@ -1,9 +1,18 @@
-<?php namespace App\Http\Middleware;
-//todo comment file
+<?php
+/**
+ * This file contains middleware for redirection after authentication
+ */
+namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
-//todo comment class
+
+/**
+ * RedirectIfAuthenticated redirect user to main page if the user is already authenticated.
+ * For example it is responsible for redirection after user registration. Laravel default.
+ * @package App\Http\Middleware
+ */
 class RedirectIfAuthenticated {
 
 	/**

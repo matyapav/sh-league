@@ -1,7 +1,15 @@
-<?php namespace App;
-//todo comment file
+<?php
+/**
+ * This file contains eloquent model for Game.
+ */
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
-//todo comment class
+
+/**
+ * Game model
+ * @package App
+ */
 class Game extends Model {
 
     /**

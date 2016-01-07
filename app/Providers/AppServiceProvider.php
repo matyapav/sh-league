@@ -1,10 +1,18 @@
-<?php namespace App\Providers;
-//todo comment file
+<?php
+/**
+ * This file contains application service provider.
+ */
+namespace App\Providers;
+
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use DateTime;
-//todo comment class
+
+/**
+ * AppServiceProvider provides non-default services (such as validations for fields.)
+ * @package App\Providers
+ */
 class AppServiceProvider extends ServiceProvider {
 
 	/**

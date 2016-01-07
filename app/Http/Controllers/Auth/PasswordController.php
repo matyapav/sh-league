@@ -1,22 +1,20 @@
-<?php namespace App\Http\Controllers\Auth;
-//todo comment file
+<?php
+/**
+ * This file contains controller for password resets.
+ */
+namespace App\Http\Controllers\Auth;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-//todo comment class
-class PasswordController extends Controller {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Password Reset Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller is responsible for handling password reset requests
-	| and uses a simple trait to include this behavior. You're free to
-	| explore this trait and override any methods you wish to tweak.
-	|
-	*/
+/**
+ * Laravel default PasswordController is responsible for handling password reset requests. NOT USED IN THIS PROJECT,
+ * but it is leaved here to future needs
+ * @package App\Http\Controllers\Auth
+ */
+class PasswordController extends Controller {
 
 	use ResetsPasswords;
 

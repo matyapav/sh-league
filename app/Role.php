@@ -1,7 +1,15 @@
-<?php namespace App;
-//todo comment file
+<?php
+/**
+ * This file contains model for Role
+ */
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
-//todo comment class
+
+/**
+ * Role model
+ * @package App
+ */
 class Role extends Model {
 
     /**

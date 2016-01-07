@@ -1,9 +1,18 @@
-<?php namespace App\Http\Middleware;
-//todo comment file
+<?php
+/**
+ * This file contains middleware for admin role.
+ */
+namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-//todo comment class
+
+/**
+ * AdminMiddleware handles routes by which is admin middleware specified. Decides if user is admin or not - so has right
+ * to access route and redirects user to corresponding page.
+ * @package App\Http\Middleware
+ */
 class AdminMiddleware {
 
 

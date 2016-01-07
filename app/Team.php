@@ -1,10 +1,23 @@
-<?php namespace App;
-//todo comment file
+<?php
+/**
+ * This file contains model for Team.
+ */
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
-//todo comment class
+
+/**
+ * Team model
+ * @package App
+ */
 class Team extends Model {
 
+    /**
+     * The database table used by the model.
+     * @var string Name of table
+     */
     protected $table = 'teams';
+
     /**
      * Defines rules for validation of team
      *

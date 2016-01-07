@@ -1,8 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains database migration.
+ */
+namespace database\migrations;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-//todo comment class
+
+/**
+ * Class CreateUserRolesTable defines db migration for user_roles pivot table bewtween User and Role tables.
+ */
 class CreateUserRolesTable extends Migration {
 
 	/**

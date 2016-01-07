@@ -12,15 +12,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{ asset('scripts/utils.js') }}"></script>
-    <!-- cdn for modernizr, if you haven't included it already -->
+    <!-- MOZZILLA FIREFOX DATEPICKER -->
     <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
-    <!-- polyfiller file to detect and load polyfills -->
     <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
     <script>
         webshims.setOptions('waitReady', false);
         webshims.setOptions('forms-ext', {types: 'date'});
         webshims.polyfill('forms forms-ext');
     </script>
+    <!-- END OF MOZZILLA FIREFOX DATEPICKER -->
 </head>
 
 <body>

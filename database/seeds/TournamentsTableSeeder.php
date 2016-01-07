@@ -1,9 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains database seeder for Tournaments.
+ */
+namespace database\seeds;
+
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Tournament;
-//todo comment class
+/**
+ * Class TournamentsTableSeeder creates Tournaments using Faker and save them into database.
+ */
 class TournamentsTableSeeder extends Seeder {
 
     /**
@@ -15,7 +21,7 @@ class TournamentsTableSeeder extends Seeder {
         $faker = Faker::create();
         foreach(range(1, 10) as $index)
         {
-            Tournament::create([
+            $t = Tournament::create([
                 'name' => $faker->name(),
                 'min_number_of_teams' => $faker->numberBetween(2,4),
                 'max_number_of_teams' => $faker->numberBetween(4,16),
@@ -23,6 +29,8 @@ class TournamentsTableSeeder extends Seeder {
                 'end_date' => $faker->date('YYYY-MM-DD'),
                 'type' => $faker->realText(100),
             ]);
+            $t->league()->associate(League::first()); //associate tournamnet with first league
+
         }
     }
 }

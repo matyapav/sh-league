@@ -1,9 +1,15 @@
 <?php
-//todo comment file
+/**
+ * This file contains database seeder for Users.
+ */
+namespace database\seeds;
+
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\User;
-//todo comment class
+/**
+ * Class UsersTableSeeder creates Users using Faker and save them into database.
+ */
 class UsersTableSeeder extends Seeder {
 
     /**

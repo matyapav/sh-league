@@ -1,8 +1,16 @@
-<?php namespace App\Providers;
+<?php
+/**
+ * This file contains bus service provider
+ */
+namespace App\Providers;
 
 use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Laravel default BusServiceProvider. Not used in this project, but leaved for future needs, such as registering Commands
+ * @package App\Providers
+ */
 class BusServiceProvider extends ServiceProvider {
 
 	/**

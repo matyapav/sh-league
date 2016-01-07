@@ -1,7 +1,15 @@
-<?php namespace App\Http;
+<?php
+/**
+ * This file contains Kernel class.
+ */
+namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+/**
+ * Class Kernel defines usage of middleware in application.
+ * @package App\Http
+ */
 class Kernel extends HttpKernel {
 
 	/**

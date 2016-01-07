@@ -1,8 +1,17 @@
-<?php namespace App\Providers;
+<?php
+/**
+ * This file contains event service provider.
+ */
+namespace App\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
+/**
+ * Laravel default EventServiceProvider. Not used in this project, but leaved here for possible future needs, such
+ * as registering events.
+ * @package App\Providers
+ */
 class EventServiceProvider extends ServiceProvider {
 
 	/**
