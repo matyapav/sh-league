@@ -6,7 +6,7 @@ namespace lang\en;
 
 return [
     //app.blade
-    'app-heading' => 'SH League administration',
+    'app-heading' => 'SH League',
     //common
     'home' => 'Home',
     'leagues' => 'Leagues',

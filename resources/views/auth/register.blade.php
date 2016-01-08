@@ -41,7 +41,7 @@
 							<label for="password" class="input-label">
 								{{trans('messages.password')}}
 							</label>
-							<input type="password" class="input-field" name="password" placeholder="" required>
+							<input type="password" class="input-field" name="password" placeholder="At least 6 characters long" required>
 							<sup data-tip="{{trans('messages.user-psswd-hint')}} {{trans('messages.required-field')}}">
 								<i class="fa fa-asterisk"></i>
 							</sup>

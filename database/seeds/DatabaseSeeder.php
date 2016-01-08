@@ -2,7 +2,7 @@
 /**
  * This file contains main Database seeder.
  */
-namespace database\seeds;
+
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;

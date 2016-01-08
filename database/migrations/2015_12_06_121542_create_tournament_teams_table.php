@@ -2,7 +2,6 @@
 /**
  * This file contains database migration.
  */
-namespace database\migrations;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;

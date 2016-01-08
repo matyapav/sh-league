@@ -3,11 +3,10 @@
 @section('content')
     <div class="text-center">
         <div class="panel">
-            <div class="panel-heading orange">{{trans('messages.home')}}</div>
+            <div class="panel-heading orange">{{trans('messages.help')}}</div>
             <div class="body_content ">
                 @include('errors.error')
                 <hr>
-                <h1>{{trans('messages.help')}}</h1>
                 <table class="fine-table">
                     <thead>
                     <th>{{trans('messages.icon')}}</th>

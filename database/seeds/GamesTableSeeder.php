@@ -2,7 +2,6 @@
 /**
  * This file contains database seeder for Games
  */
-namespace database\seeds;
 
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;

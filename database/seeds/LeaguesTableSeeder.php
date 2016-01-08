@@ -2,11 +2,11 @@
 /**
  * This file contains database seeder for Leagues
  */
-namespace database\seeds;
 
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\League;
+use App\Game;
 /**
  * Class LeaguesTableSeeder creates Leagues using Faker and save them into database.
  */
@@ -26,7 +26,7 @@ class LeaguesTableSeeder extends Seeder {
                 'abbreviation'=>$faker->realText(10),
                 'description' => $faker->realText(150)
             ]);
-            $l->game()->associate(Game::first()); //associate league with first game
+            $l->game()->associate(Game::first())->save(); //associate league with first game
         }
     }
 }

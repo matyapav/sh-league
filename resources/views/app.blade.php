@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>SH league</title>
+    <title>{{trans('messages.app-heading')}}</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet" type="text/css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app.css') }}" media="all" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
 <body>
 <div class="container">
     <div class="navbar text-center">
-        <h1>SH League administration</h1>
+        <h1>{{trans('messages.app-heading')}}</h1>
         <nav class="menu text-vert-center text-center">
             <ul class="menu-items">
                 <li>

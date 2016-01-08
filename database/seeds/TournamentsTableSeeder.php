@@ -2,11 +2,11 @@
 /**
  * This file contains database seeder for Tournaments.
  */
-namespace database\seeds;
 
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Tournament;
+use App\League;
 /**
  * Class TournamentsTableSeeder creates Tournaments using Faker and save them into database.
  */
@@ -29,7 +29,7 @@ class TournamentsTableSeeder extends Seeder {
                 'end_date' => $faker->date('YYYY-MM-DD'),
                 'type' => $faker->realText(100),
             ]);
-            $t->league()->associate(League::first()); //associate tournamnet with first league
+            $t->league()->associate(League::first())->save(); //associate tournamnet with first league
 
         }
     }
