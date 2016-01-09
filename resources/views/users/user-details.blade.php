@@ -147,7 +147,7 @@
                                         <div>{{ $invitation->name }}</div>
                                     </td>
                                     <td>
-                                        <div>{{ $invitation->captain->name }}</div>
+                                        <div>{{ $invitation->captain->nickname}}</div>
                                     </td>
                                     <td>
                                         <a href="{{ URL::to('users/acceptInvitation/'.$invitation->id) }}">
