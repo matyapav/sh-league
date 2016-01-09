@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e23d1fb-f5c4-4b7e-b4e7-b5d58b2b62ea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/users/user-details.blade.php" afterPath="$PROJECT_DIR$/resources/views/users/user-details.blade.php" />
-    </list>
+    <list default="true" id="3e23d1fb-f5c4-4b7e-b4e7-b5d58b2b62ea" name="Default" comment="" />
     <ignored path="quickstart.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -305,7 +301,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="C:/phpDocumentor-2.8.5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravelapp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
